@@ -1,0 +1,14 @@
+.footerContainer{
+    background: #1B3C74;
+    /* margin-top: 10px; */
+
+}
+
+.footerLinks{
+    color: #fff ;
+    text-decoration: none !important;
+}
+
+.copyright{
+    text-align: left;
+}
