@@ -25,3 +25,12 @@
     height: auto;
     /* width: auto; */
 }
+
+@media (max-width: 900px) {
+    .accordianRes{
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 10px;
+    }
+}
