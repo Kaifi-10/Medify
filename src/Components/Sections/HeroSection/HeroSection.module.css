@@ -1,0 +1,65 @@
+.textContainer{
+    text-align: left;
+}
+
+span{
+    color: #2AA7FF;
+    font-family: 'Poppins';
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68px;
+    letter-spacing: 0.02em;
+    /* text-align: left; */
+
+
+}
+
+.textMedical{
+    font-family: 'Poppins';
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    line-height: 68px !important;
+    letter-spacing: 0.02em !important;
+    /* text-align: left ; */
+
+}
+
+.textSkip {
+    font-family: 'Poppins';
+    font-size: 31px !important;
+    font-weight: 500 !important;
+    line-height: 68px !important;
+    letter-spacing: 0.02em !important;
+    /* text-align: left; */
+    color: #102851;
+
+
+}
+
+.textConnect{
+    color: #5C6169;
+    font-family: 'Poppins';
+    font-size: 20px !important;
+    /* font-weight: 400 !important; */
+    line-height: 32px !important;
+    letter-spacing: 0.02em !important;
+    /* text-align: left; */
+
+
+}
+
+.heroButton{
+    width: Hug (177px)px;
+    height: Hug (48px)px;
+    padding: 12px 36px 12px 36px;
+    border-radius: 8px ;
+    background: #2AA8FF !important;
+    margin-top: 20px !important;
+
+
+}
+/* 
+.boxContainer{
+    background: linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%);
+
+} */
