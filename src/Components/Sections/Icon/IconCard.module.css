@@ -1,0 +1,12 @@
+.searchCards{
+    width: 203px;
+    height: 153px;
+    gap: 0px;
+    border-radius: 8px ;
+    background: #FAFBFE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
