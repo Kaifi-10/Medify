@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import styles from './HomePage.module.css'
 import Search from '../Sections/Search/Search'
 import ServiceLooking from '../Sections/ServiceLooking/ServiceLooking'
+import Offers from '../Sections/Offers/Offers'
 
 
 function HomePage() {
@@ -27,6 +28,8 @@ function HomePage() {
                 <Search />
                 <ServiceLooking />
             </Stack>
+
+            <Offers />
 
         </Box>
         

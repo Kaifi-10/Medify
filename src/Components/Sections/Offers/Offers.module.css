@@ -1,0 +1,8 @@
+
+.swiperImage {
+    width: 398.3px !important;
+    height: 199.15px !important;
+    /* border-radius: 20px 0px 0px 0px !important; */
+    object-fit: cover !important;
+    margin-bottom: 35px;
+}
