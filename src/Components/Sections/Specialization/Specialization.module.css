@@ -1,0 +1,42 @@
+.textSpec{
+    font-family: 'Poppins' !important;
+    font-size: 48px !important;
+    font-weight: 600 !important;
+    line-height: 67px !important;
+    text-align: center !important;
+}
+
+.specButton{
+    width: 147px;
+    height: 50px;
+    border-radius: 10px !important;
+    background: #2AA8FF !important;
+    margin: 20px !important;
+
+}
+
+.specBox{
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.cardItem {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 100%;
+}
+
+.gridWrapper{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gridContainer {
+    width: 100%;
+    margin: 0px;
+}
+

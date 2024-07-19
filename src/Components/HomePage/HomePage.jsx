@@ -6,6 +6,7 @@ import styles from './HomePage.module.css'
 import Search from '../Sections/Search/Search'
 import ServiceLooking from '../Sections/ServiceLooking/ServiceLooking'
 import Offers from '../Sections/Offers/Offers'
+import Specialization from '../Sections/Specialization/Specialization'
 
 
 function HomePage() {
@@ -30,6 +31,8 @@ function HomePage() {
             </Stack>
 
             <Offers />
+
+            <Specialization />
 
         </Box>
         
