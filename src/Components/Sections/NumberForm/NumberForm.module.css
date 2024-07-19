@@ -44,11 +44,12 @@
 
 .formInput {
     flex-grow: 1;
+    /* height: 50px; */
 }
 
 .submitButton {
     background: #2AA8FF !important;
-    height: 56px; /* Match TextField height */
+    height: 50px; /* Match TextField height */
     width: 120px !important; /* Increased width to accommodate text */
     white-space: nowrap !important; /* Prevent text wrapping */
     padding: 0 16px !important; /* Adjust padding to ensure text fits */
