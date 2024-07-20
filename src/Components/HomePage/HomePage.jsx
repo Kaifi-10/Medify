@@ -9,6 +9,7 @@ import Offers from '../Sections/Offers/Offers'
 import Specialization from '../Sections/Specialization/Specialization'
 import Specialist from '../Sections/Specialist/Specialist'
 import PatientCaring from '../Sections/PatientCaring/PatientCaring'
+import Blog from '../Sections/Blog/Blog'
 
 
 function HomePage() {
@@ -39,6 +40,8 @@ function HomePage() {
             <Specialist />
 
             <PatientCaring />
+
+            <Blog />
 
         </Box>
         

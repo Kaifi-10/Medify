@@ -1,0 +1,70 @@
+.blogNews{
+    font-family: 'Poppins' !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 27px !important;
+    color: #2AA7FF !important;
+}
+
+.readLatest{
+    font-family: 'Poppins' !important;
+    font-size: 48px !important;
+    font-weight: 600 !important;
+    line-height: 67px !important;
+    color: #1B3C74 !important;
+
+
+}
+
+
+.cardContainer{
+    width: 363px;
+    height: 458px;
+    left: 12px;
+    padding: 0px 0px 20px 0px;
+    border-radius: 10px;
+    border: 1px ;
+    border: 1px solid #00000012
+}
+
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.author{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.rebeccaName{
+    font-family: 'Poppins' !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    line-height: 27px !important;
+    color: #1B3C74 !important;
+}
+
+.date{
+    font-family: 'Poppins' !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 27px !important;
+    color: #77829D !important;
+
+
+}
+
+.tips{
+    font-family: 'Poppins' !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 27px !important;
+    color: #1B3C74 !important;
+}
