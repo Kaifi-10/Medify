@@ -7,6 +7,7 @@ import Search from '../Sections/Search/Search'
 import ServiceLooking from '../Sections/ServiceLooking/ServiceLooking'
 import Offers from '../Sections/Offers/Offers'
 import Specialization from '../Sections/Specialization/Specialization'
+import Specialist from '../Sections/Specialist/Specialist'
 
 
 function HomePage() {
@@ -33,6 +34,8 @@ function HomePage() {
             <Offers />
 
             <Specialization />
+
+            <Specialist />
 
         </Box>
         

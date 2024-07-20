@@ -1,0 +1,47 @@
+.boxContainer{
+    margin-bottom: 35px;
+}
+
+
+
+.docHeading{
+    font-family: 'Poppins' !important;
+    font-size: 48px !important;
+    font-weight: 600 !important;
+    line-height: 67px !important;
+    text-align: center !important;
+    color: #1B3C74;
+
+}
+
+.docImg{
+    width: 370px !important;
+    height: 414px !important;
+    padding: 10px 0px 0px 0px !important;
+    border-radius: 250px 250px 8px 8px !important;
+    box-shadow: 0px 15px 55px -10px #00000017;
+    background: #FFFFFF;
+
+}
+
+.docTitle{
+    font-family: 'Poppins' !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    line-height: 48px !important;
+    text-align: center !important;
+    color: #1B3C74 !important;
+
+
+}
+
+
+.docDesignation{
+    font-family: 'Poppins' !important;
+    font-size: 16px  !important;
+    font-weight: 500 !important;
+    line-height: 27px !important;
+    text-align: center;
+    color: #2AA7FF !important;
+
+}
