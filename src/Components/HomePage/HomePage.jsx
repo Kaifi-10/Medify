@@ -8,6 +8,7 @@ import ServiceLooking from '../Sections/ServiceLooking/ServiceLooking'
 import Offers from '../Sections/Offers/Offers'
 import Specialization from '../Sections/Specialization/Specialization'
 import Specialist from '../Sections/Specialist/Specialist'
+import PatientCaring from '../Sections/PatientCaring/PatientCaring'
 
 
 function HomePage() {
@@ -36,6 +37,8 @@ function HomePage() {
             <Specialization />
 
             <Specialist />
+
+            <PatientCaring />
 
         </Box>
         
