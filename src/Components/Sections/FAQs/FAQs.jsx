@@ -28,7 +28,7 @@ function FAQs() {
   return (
     <Box>
         <Container >
-            <Typography className={styles.answer}>
+            <Typography className={styles.answer} mt={4}>
                 Get Your Answer
             </Typography>
             <Typography variant='h3' className={styles.question} mb={2} fontWeight={600}>

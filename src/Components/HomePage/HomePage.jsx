@@ -10,6 +10,7 @@ import Specialization from '../Sections/Specialization/Specialization'
 import Specialist from '../Sections/Specialist/Specialist'
 import PatientCaring from '../Sections/PatientCaring/PatientCaring'
 import Blog from '../Sections/Blog/Blog'
+import OurFamily from '../Sections/OurFamily/OurFamily'
 
 
 function HomePage() {
@@ -42,6 +43,8 @@ function HomePage() {
             <PatientCaring />
 
             <Blog />
+
+            <OurFamily />
 
         </Box>
         

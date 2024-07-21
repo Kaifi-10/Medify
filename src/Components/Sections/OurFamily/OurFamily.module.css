@@ -1,0 +1,67 @@
+.banner{
+    width: 585px;
+    height: 714px;
+    /* top: 4219px;
+    left: 737px; */
+
+
+}
+
+
+
+
+.typographyBox{
+    width: 575px;
+    height: 714px;
+    top: 4219px;
+    left: 137px;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* text-align: left; */
+
+
+}
+
+.caringHeading{
+    font-family: 'Poppins' ;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    line-height: 18px !important;
+    /* text-align: left; */
+    color: #2AA7FF;
+    width: 491px !important;
+    height: 18px !important;
+    top: 183px !important;
+
+
+
+}
+
+/* .stackBox{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
+} */
+
+.families{
+    font-family: 'Poppins' ;
+    font-size: 48px !important;
+    font-weight: 600 !important;
+    line-height: 70px !important;
+    color: #1B3C74;
+}
+
+
+
+.ourFamilyConnect{
+
+    font-family: 'Inter' !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    line-height: 40.8px !important;
+    color: #77829D !important  ;
+
+}
