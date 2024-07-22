@@ -1,0 +1,53 @@
+
+.buleBackground{
+    width: 100%;
+    height: 110px;
+    
+    position: relative;
+    border-radius: 0 0 16px 16px ;
+    background: linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%);
+
+
+}
+/* 
+.searchBox{
+    width: 1145px !important;
+    height:  111px !important;
+    top: 1709px !important;
+    left: 135px;
+    padding: 17px 24px 27px 24px; //commented
+    gap: 29px;
+    border-radius: 15px ;
+    box-shadow: 6px 6px 35px 0px #1028511C;
+    background: #FFFFFF;
+    margin-top: 100px; //commented
+    margin-bottom: 50px;
+
+    comment start
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 130px;
+    comment end
+
+    padding-top: 1px;
+    padding-bottom: 50px;
+    
+
+} */
+
+.searchBox {
+    width: 1145px !important;
+    height: 111px !important;
+    position: absolute !important;
+    bottom: -55px !important; /* Position half of the box's height below the blueBackground */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 15px;
+    box-shadow: 6px 6px 35px 0px #1028511C;
+    background: #FFFFFF;
+    /* padding: 17px 24px 27px 24px; */
+    z-index: 1;
+    padding-top: 1px;
+    padding-bottom: 50px;
+}
