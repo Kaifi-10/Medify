@@ -34,6 +34,7 @@
     font-weight: 700 !important;
     line-height: 19.6px !important;
     color: #02A401 !important;
+    text-transform: uppercase !important;
 
 }
 
@@ -65,6 +66,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: row;
     /* padding: 5px; */
 
 }
@@ -85,8 +87,8 @@
 }
 
 .hopitalCardContainer{
-    width: 785.56px;
-    height: 180.38px;
+    /* width: 785.56px !important;
+    height: 180.38px !important; */
     padding: 24px ;
     gap: 14px;
     border-radius: 15px ;
@@ -101,4 +103,15 @@
     /* line-height: 25px; */
 
 
+}
+
+/* .texting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.calendarWrapper{
+    display: flex;
+    flex-direction: row;
 }

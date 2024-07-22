@@ -6,8 +6,17 @@ import styles from './SearchPage.module.css'
 import oral from '../../assets/oral.png'
 import tick from '../../assets/greyTick.png'
 import HospitalCard from '../Sections/HospitalCard/HospitalCard'
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import Calender from '../Sections/Calender/Calender'
+
+
 
 function SearchPage() {
+    const theme = useTheme();
+
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <Box className={styles.searchPageContainer}>
         <Navbar />
@@ -59,16 +68,31 @@ function SearchPage() {
             </Stack>
           </Box>
 
-          <Stack alignItems="flex-start" direction={{ md: "row" }}>
-            <Stack>
+          <Stack /*alignItems="flex-start"*/ direction={{ md: "row" }}
+          // sx={{
+          //   alignItems:{
+          //     md:'center',
+          //     xl:'flex-start'
+          //   }
+          // }}
+          alignItems='center'
+          > 
+            <Stack alignItems='center' >
+            {/* <Stack direction={matches ? "row" : "column"}>
+            <Stack alignItems="flex-start"> */}
                 <HospitalCard />
+                {/* <Calender /> */}
             </Stack>
             <Box component='img' src={oral} alt='Oral' width={363} 
             sx={{
               boxShadow: 5, 
-              borderRadius:5
+              borderRadius:5,
               // boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-            }}/>
+              mt:{ xs: '25px', sm: '25px', md: '0px', lg: '0px', xl: '0px' },
+              ml:{ xs: '-40px', sm: '-40px', md: '0px', lg: '0px', xl: '0px' }
+            }}
+            // alignItems='center'
+            />
           </Stack>
         </Container>
         

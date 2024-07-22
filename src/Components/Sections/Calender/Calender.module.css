@@ -1,0 +1,33 @@
+.calenderContainer{
+    /* width: 785.56px !important;
+    height: 180.38px !important; */
+    padding: 24px ;
+    gap: 14px;
+    border-radius: 15px ;
+    background: #FFFFFF;
+    box-shadow: 6px 6px 35px 0px #1028511C;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    margin-top: 20px;
+    /* line-height: 25px; */
+
+
+}
+
+.timePeriod{
+    font-family: 'Lato' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 19.6px !important;
+    text-align: left !important;
+    color: #414146 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
