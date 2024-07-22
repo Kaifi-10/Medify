@@ -8,7 +8,9 @@ import Select from '@mui/material/Select';
 import styles from './Search.module.css'
 import { Box, Button, InputAdornment } from '@mui/material';
 import SearchIcon from "@mui/icons-material/Search";
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 
 const ITEM_HEIGHT = 48;
@@ -22,18 +24,18 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
+// const names = [
+//   'Oliver Hansen',
+//   'Van Henry',
+//   'April Tucker',
+//   'Ralph Hubbard',
+//   'Omar Alexander',
+//   'Carlos Abbott',
+//   'Miriam Wagner',
+//   'Bradley Wilkerson',
+//   'Virginia Andrews',
+//   'Kelly Snyder',
+// ];
 
 function getStyles(name, personName, theme) {
   return {
@@ -45,24 +47,62 @@ function getStyles(name, personName, theme) {
 }
 
 export default function Search() {
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [formData, setFormData] = useState({ state: "", city: "" });
+  const navigate = useNavigate();
+  
+
+  
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+  useEffect(() =>{
+    const fetchStates = async () =>{
+      try {
+        const response = await axios.get("https://meddata-backend.onrender.com/states")
+        setStates(response.data)
+      } catch (error) {
+        console.log("Error in fething the States:", error)
+      }
+    }
+    fetchStates()
+  },[])
+
+
+  useEffect( () =>{
+    const fetchCities = async () =>{
+      try {
+        const response = await axios.get(`https://meddata-backend.onrender.com/cities/${formData.state}`)
+        setCities(response.data)
+      } catch (error) {
+        console.log("Error while fetching the cities:", error);
+      }
+    }
+    if(formData.state !==''){
+      fetchCities()
+    }
+  },[formData.state])
+
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleSubmit =(e) =>{
+    e.preventDefault()
+    if(formData.state && formData.city){
+      navigate(`/search?state=${formData.state}&city=${formData.city}`)
+    }
+  }
 
   return (
     <div>
       <Box
       component="form"
-    //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         gap: 4,
@@ -81,25 +121,26 @@ export default function Search() {
             //   labelId="demo-multiple-name-label"
             id="state-select-label"
             //   multiple
-            value={personName}
+            value={formData.state}
+            name='state'
             onChange={handleChange}
             startAdornment={
                 <InputAdornment position="start">
                 <SearchIcon />
                 </InputAdornment>
             }
-            input={<OutlinedInput label="Name" />}
+            input={<OutlinedInput label="State" />}
             MenuProps={MenuProps}
             required
             sx={{ minWidth: 200, width: "100%" }}
         >
-          {names.map((name) => (
+          {states.map((state) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={state}
+              value={state}
+              style={getStyles(state, formData.state, theme)}
             >
-              {name}
+              {state}
             </MenuItem>
           ))}
         </Select>
@@ -114,25 +155,26 @@ export default function Search() {
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
             //   multiple
-            value={personName}
+            value={formData.city}
+            name='city'
             onChange={handleChange}
             startAdornment={
                 <InputAdornment position="start">
                 <SearchIcon />
                 </InputAdornment>
             }
-            input={<OutlinedInput label="Name" />}
+            input={<OutlinedInput label="City" />}
             MenuProps={MenuProps}
             required
             sx={{ minWidth: 200, width: "100%" }}
         >
-          {names.map((name) => (
+          {cities.map((city) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={city}
+              value={city}
+              style={getStyles(city, formData.city, theme)}
             >
-              {name}
+              {city}
             </MenuItem>
           ))}
         </Select>
