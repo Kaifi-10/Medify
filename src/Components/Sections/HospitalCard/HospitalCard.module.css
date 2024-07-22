@@ -1,0 +1,104 @@
+
+
+
+.hospitalName{
+    font-family: 'Poppins' !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 28px !important;
+    color: #14BEF0 !important;
+
+}
+
+.hospitalLocation{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 19.6px !important;
+    color: #414146 !important;
+
+}
+
+.hospitalType{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 19.6px !important;
+    color: #414146 !important;
+
+}
+
+.free{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 19.6px !important;
+    color: #02A401 !important;
+
+}
+
+.amount{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 19.6px !important;
+    color: #787887 !important;
+    text-decoration: line-through;
+
+}
+
+.consultaion{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 19.6px !important;
+    color: #414146 !important;
+}
+
+.rating{
+    width: 44.08px;
+    height: 22.5px;
+    padding: 4.5px 7.49px 4px 10.8px;
+    gap: 2.79px;
+    border-radius: 4px;
+    background: #00A500;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* padding: 5px; */
+
+}
+
+.available{
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 19.6px !important;
+    text-align: center !important;
+    color: #01A400 !important;
+
+}
+
+.bookButton{
+    background: #2AA7FF !important;
+    border: 1px solid #14BEF0 !important;
+}
+
+.hopitalCardContainer{
+    width: 785.56px;
+    height: 180.38px;
+    padding: 24px ;
+    gap: 14px;
+    border-radius: 15px ;
+    background: #FFFFFF;
+    box-shadow: 6px 6px 35px 0px #1028511C;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 50px;
+    margin-top: 20px;
+    /* line-height: 25px; */
+
+
+}
