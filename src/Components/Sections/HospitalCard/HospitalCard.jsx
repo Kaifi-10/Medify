@@ -12,11 +12,19 @@ export default function HospitalCard({
   details,
   booking = false,
   onBookingConfirmed,
+  appointmentDate,
+  appointmentTime
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [open, setOpen] = useState(false);
+
+  const hospitalName = details["Hospital Name"] || 'N/A';
+  const city = details["City"] || 'N/A';
+  const state = details["State"] || 'N/A';
+  const hospitalType = details["Hospital Type"] || 'N/A';
+  const hospitalRating = details["Hospital overall rating"] || 'Not Available';
 
 
   const handleBookingSuccess = (selectedDate, selectedTime) => {
@@ -35,13 +43,7 @@ export default function HospitalCard({
     checkBookingComplete();
   };
 
-  // const checkBookingComplete = () => {
-  //   if (selectedDate && selectedTime) {
-  //     setOpen(true);
-  //     storeBookingData();
-  //     onBookingConfirmed();
-  //   }
-  // };
+
 
   const checkBookingComplete = () => {
     if (selectedDate && selectedTime) {
@@ -72,7 +74,8 @@ export default function HospitalCard({
 
   return (
     <Box 
-    sx={{ borderRadius: 2, 
+    sx={{ 
+        borderRadius: 2, 
         bgcolor: "#fff", 
         p: { xs: 2, md: 4 },
         width: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '785.56px' },
@@ -114,7 +117,8 @@ export default function HospitalCard({
             lineHeight={1}
             className={styles.hospitalName}
           >
-            {details["Hospital Name"].toLowerCase()}
+          
+            {hospitalName.toLowerCase()}
             {/* Fortis Hospital Richmond Road */}
           </Typography>
           <Typography
@@ -124,11 +128,13 @@ export default function HospitalCard({
             fontWeight={700}
             className={styles.hospitalLocation}
           >
-            {`${details["City"].toLowerCase()}, ${details["State"]}`}
+          
+            {`${city.toLowerCase()}, ${state}`}
             {/* Banglore, Karnataka */}
           </Typography>
           <Typography fontSize={14} mb={1} className={styles.hospitalType}>
-            {details["Hospital Type"]}
+          
+            {hospitalType}
             {/* Smilessence Center for Advanced Dentistry + 1 more */}
           </Typography>
           <Stack direction="row" flexWrap="wrap" spacing="4px" mb={2}>
@@ -169,9 +175,8 @@ export default function HospitalCard({
               color="#fff"
               sx={{ opacity: 0.5 }}
             >
-              {details["Hospital overall rating"] == "Not Available"
-                ? 0
-                : details["Hospital overall rating"]}
+         
+                {hospitalRating === "Not Available" ? 0 : hospitalRating}
                  
             </Typography>
           </Stack>
@@ -201,6 +206,7 @@ export default function HospitalCard({
               </Button>
             </>
           )}
+         
 
           {/*  */}
         </Stack>

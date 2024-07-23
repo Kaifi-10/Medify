@@ -8,6 +8,7 @@ import FAQs from './Components/Sections/FAQs/FAQs';
 import Footer from './Components/Sections/Footer/Footer';
 import HeroSection from './Components/Sections/HeroSection/HeroSection';
 import SearchPage from './Components/SearchPage/SearchPage';
+import BookingPage from './Components/BookingPage/BookingPage';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       {/* <Router> */}
       <Routes>
       <Route exact path="/" element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
+      <Route path="/search" element={<SearchPage />} />
+      <Route path='/bookings' element={<BookingPage />} />
         {/* Add other routes here */}
       </Routes>
     {/* </Router> */}

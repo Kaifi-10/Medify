@@ -57,21 +57,17 @@ function SearchPage() {
   //   setOpenAlert(true);
   // };
 
-  const handleBookingConfirmed = (details, selectedDate, selectedTime) => {
+  /*const handleBookingConfirmed = (details, selectedDate, selectedTime) => {
 
     if (!selectedDate || !selectedTime) {
       console.log("Both date and time must be selected to confirm booking");
       return;
     }
     const bookingData = {
-      hospitalName: details["Hospital Name"],
-      city: details["City"],
-      state: details["State"],
-      hospitalType: details["Hospital Type"],
-      hospitalRating: details["Hospital overall rating"],
-      appointmentDate: selectedDate,
-      appointmentTime: selectedTime,
-      id: Date.now()
+      hospital: details["Hospital Name"],
+      date: selectedDate,
+      time: selectedTime,
+      ...details
     };
     // localStorage.setItem('hospitalBooking', JSON.stringify(bookingData));
 
@@ -100,7 +96,66 @@ function SearchPage() {
     // Store the updated bookings array back in localStorage
     localStorage.setItem('hospitalBookings', JSON.stringify(updatedBookings));
     setOpenAlert(true);
+  };*/
+
+  const handleBookingConfirmed = (details, selectedDate, selectedTime) => {
+    if (!selectedDate || !selectedTime) {
+      console.log("Both date and time must be selected to confirm booking");
+      return;
+    }
+
+    let formattedDate;
+    if (selectedDate instanceof Date) {
+      formattedDate = selectedDate.toISOString();
+    } else if (typeof selectedDate === 'string') {
+      // Assuming selectedDate is already in a valid format
+      formattedDate = selectedDate;
+    } else {
+      console.error('Invalid date format');
+      return;
+    }
+
+    // Highlight start
+    const bookingData = {
+      hospital: details["Hospital Name"],
+      date: formattedDate, // Ensure date is stored as string
+      time: selectedTime,
+      ...details
+    };
+
+    // Retrieve existing bookings from localStorage
+    const existingBookingsJSON = localStorage.getItem('hospitalBookings');
+    let existingBookings = [];
+
+    if (existingBookingsJSON) {
+      try {
+        existingBookings = JSON.parse(existingBookingsJSON);
+      } catch (error) {
+        console.error('Error parsing existing bookings:', error);
+      }
+    }
+
+    // Define the newBooking object using the parameters
+    const newBooking = {
+      ...bookingData,
+      id: Date.now(), // Adding a unique ID to the new booking
+    };
+
+    // Add the new booking to the array
+    const updatedBookings = [...existingBookings, newBooking];
+
+    // Store the updated bookings array back in localStorage
+    localStorage.setItem('hospitalBookings', JSON.stringify(updatedBookings));
+    // Highlight end
+
+    setOpenAlert(true);
   };
+
+  // ... rest of the component remains the same
+
+
+
+
 
   const handleCloseAlert = (event, reason) => {
     if (reason === 'clickaway') {
@@ -211,12 +266,12 @@ function SearchPage() {
             sx={{
               position: 'sticky',
               alignSelf: 'flex-start',
-              display: { xs: 'none', md: 'block' },
+              display: { xs: 'block', md: 'block' },
               boxShadow: 5, 
               borderRadius:5,
               // boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
               mt:{ xs: '25px', sm: '25px', md: '0px', lg: '0px', xl: '15px' },
-              ml:{ xs: '-40px', sm: '-40px', md: '0px', lg: '0px', xl: '0px' }
+              ml:{ xs: '40px', sm: '225px', md: '0px', lg: '0px', xl: '0px' }
             }}
             // alignItems='center'
             />

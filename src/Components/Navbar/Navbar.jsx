@@ -32,12 +32,12 @@ function Navbar() {
             style={{display:"flex", alignItems:"flex-start", justifyContent:"flex-start"}}>
               
                 <Link className={styles.navLink}>Find Doctors</Link>
-                <Link className={styles.navLink}>Hospitals</Link>
+                <Link to='/search' className={styles.navLink}>Hospitals</Link>
                 <Link className={styles.navLink}>Medicines</Link>
                 <Link className={styles.navLink}>Surgeries</Link>
                 <Link className={styles.navLink}>Software for Provider</Link>
                 <Link className={styles.navLink}>Facilities</Link>
-                <Link >
+                <Link to='/bookings'>
                 <Button variant="contained" disableElevation style={{background:"#2AA8FF"}}>My Bookings</Button>
                 </Link>
              
