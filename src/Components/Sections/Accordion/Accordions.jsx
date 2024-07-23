@@ -27,7 +27,7 @@ function Accordions({data}) {
         // onChange={handleChange}
         className={styles.customAccordion}
         sx={{
-          maxWidth: '464px', // Change the maximum height as needed
+          maxWidth: '464px', // Changed the maximum height as needed
           overflow: 'auto',
           
         }}

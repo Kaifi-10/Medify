@@ -1,14 +1,14 @@
 .customAccordion {
-    max-height: 300px; /* Change the maximum height as needed */
-    overflow: auto; /* Add overflow to handle content that exceeds the height */
+    max-height: 300px; 
+    overflow: auto; 
   }
   
   .customAccordionSummary {
-    height: 60px; /* Set the height of the summary */
+    height: 60px; 
   }
   
   .customAccordionDetails {
-    max-height: 240px; /* Set the maximum height for the details */
-    overflow: auto; /* Add overflow to handle content that exceeds the height */
+    max-height: 240px; 
+    overflow: auto; 
   }
   

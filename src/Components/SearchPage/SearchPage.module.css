@@ -51,32 +51,32 @@
 
 @media (max-width: 1200px) {
     .searchBox {
-        width: 90% !important; /* Reduced width for smaller screens */
-        max-width: 600px !important; /* Added max-width for medium screens */
+        width: 90% !important; 
+        max-width: 600px !important; 
         height: auto !important;
-        min-height: 80px !important; /* Reduced min-height */
-        padding: 10px 15px !important; /* Reduced padding */
-        bottom: -400px !important; /* Adjusted position */
+        min-height: 80px !important; 
+        padding: 10px 15px !important; 
+        bottom: -400px !important; 
         margin-bottom: 100px;
     }
     
     .buleBackground {
-        height: 90px; /* Reduced height of background */
+        height: 90px;
         margin-bottom: 350px;
     }
 }
 
 @media (max-width: 600px) {
     .searchBox {
-        width: 85% !important; /* Further reduced width for very small screens */
+        width: 85% !important; 
         max-width: none !important;
-        min-height: 60px !important; /* Further reduced min-height */
-        padding: 8px 12px !important; /* Further reduced padding */
-        bottom: -100px !important; /* Further adjusted position */
+        min-height: 60px !important; 
+        padding: 8px 12px !important; 
+        bottom: -100px !important; 
     }
     
     .buleBackground {
-        height: 80px; /* Further reduced height of background */
+        height: 80px; 
         margin-bottom: 350px;
     }
 }

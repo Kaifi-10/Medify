@@ -49,17 +49,6 @@ export default function Offers() {
 
                     {specialistData.map((docs, index) => (
                         <SwiperSlide key={index}>
-                            {/* <Box 
-                                component={'img'} 
-                                src={docs.img} 
-                                // className={styles.swiperImage}
-                                sx={{
-                                    width: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '70%' },
-                                    height: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '70%' },
-                                    borderRadius: '20px',
-                                    objectFit: 'cover'
-                                }}
-                            /> */}
                             <SpecialistCard img={docs.img} title={docs.title} designation={docs.designation}/>
                         </SwiperSlide>
                     ))}

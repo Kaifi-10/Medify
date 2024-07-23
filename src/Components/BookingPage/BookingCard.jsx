@@ -34,14 +34,7 @@ export default function BookingCard({booking }) {
         // mb:{xs:'30px', sm:'30px'},
         // height: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '180.38px' },
      }}
-    // sx={{
-    //                  width: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '785.56px' },
-    //                  height: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '180.38px' },
-    //                 //  mx: 'auto'
-    //                 mb:{xs:'30px', sm:'30px'},
-    //                 justifyContent:'center',
-    //                 alignContent:'center'
-    //             }}
+    
                 >
       <Stack
         direction={{ xs: "column", md: "row" }}

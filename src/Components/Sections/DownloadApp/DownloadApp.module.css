@@ -52,22 +52,13 @@
     max-width: 570px; /* Sets a maximum width */
 }
 
-/* 
-.curvedArrow {
-    position: absolute;
-    left: 50%;
-    top: 100%; 
-    transform: translate(-50%, -50%); 
-    width: 40px;
-    height: auto;
-  } */
 
 
 .curvedArrow {
     position: absolute;
-    left: 10px; /* Adjust left position as needed */
-    top: 50%; /* Center vertically */
-    transform: translate(0, -50%); /* Adjust position to exact center */
+    left: 10px; 
+    top: 50%; 
+    transform: translate(0, -50%); 
     width: 40px;
     height: auto;
   }
