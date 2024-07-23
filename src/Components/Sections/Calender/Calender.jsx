@@ -81,8 +81,10 @@ function Calender() {
             height: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '180.38px' },
            //  mx: 'auto'
            mb:{xs:'30px', sm:'30px'},
-           justifyContent:'center',
-           alignContent:'center',
+           display:'flex',
+           flexDirection:'column',
+           justifyContent:'flex-start',
+           alignContent:'flex-start',
         //    bgcolor: '#fff'
        }}>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
@@ -120,6 +122,7 @@ function Calender() {
               gap={1}
               >
               <Typography variant="h6" 
+              textAlign={{ xs: 'left', xl: 'left' }}
               mb={1}
               mr={5}
               className={styles.timePeriod}

@@ -113,9 +113,8 @@ import { format } from "date-fns";
 
 
 export default function HospitalCard({
+  key,
   details,
-  availableSlots,
-  handleBooking,
   booking = false,
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -164,8 +163,8 @@ export default function HospitalCard({
             lineHeight={1}
             className={styles.hospitalName}
           >
-            {/* {details["Hospital Name"].toLowerCase()} */}
-            Fortis Hospital Richmond Road
+            {details["Hospital Name"].toLowerCase()}
+            {/* Fortis Hospital Richmond Road */}
           </Typography>
           <Typography
             textTransform="capitalize"
@@ -174,12 +173,12 @@ export default function HospitalCard({
             fontWeight={700}
             className={styles.hospitalLocation}
           >
-            {/* {`${details["City"].toLowerCase()}, ${details["State"]}`} */}
-            Banglore, Karnataka
+            {`${details["City"].toLowerCase()}, ${details["State"]}`}
+            {/* Banglore, Karnataka */}
           </Typography>
           <Typography fontSize={14} mb={1} className={styles.hospitalType}>
-            {/* {details["Hospital Type"]} */}
-            Smilessence Center for Advanced Dentistry + 1 more
+            {details["Hospital Type"]}
+            {/* Smilessence Center for Advanced Dentistry + 1 more */}
           </Typography>
           <Stack direction="row" flexWrap="wrap" spacing="4px" mb={2}>
             <Typography
@@ -219,10 +218,10 @@ export default function HospitalCard({
               color="#fff"
               sx={{ opacity: 0.5 }}
             >
-              {/* {details["Hospital overall rating"] == "Not Available"
+              {details["Hospital overall rating"] == "Not Available"
                 ? 0
-                : details["Hospital overall rating"]} */}
-                 5
+                : details["Hospital overall rating"]}
+                 
             </Typography>
           </Stack>
         </Box>
