@@ -6,7 +6,7 @@ import styles from './Calender.module.css'
 import {  useMediaQuery, useTheme } from '@mui/material';
 
 
-function Calender() {
+function Calender( {details, onDateSelect, onTimeSelect, onBookingSuccess }) {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
@@ -20,6 +20,17 @@ function Calender() {
       Afternoon: ['12:00 PM', '12:30 PM', '01:30 PM', '02:00 PM', '02:30 PM'],
       Evening: ['06:00 PM', '06:30 PM', '07:00 PM', '07:30 PM'],
     };
+
+    const handleBookingSuccess = () => {
+      if (selectedDate && selectedTime) {
+        // onBookingSuccess(details);
+        onBookingSuccess(details, selectedDate, selectedTime);
+      }
+    };
+
+    useEffect(() => {
+      handleBookingSuccess();
+    }, [selectedDate, selectedTime]);
   
 
     const generateDateRange = (startDate) => {
@@ -65,8 +76,20 @@ function Calender() {
         setVisibleDateRange(generateDateRange(newStartDate).slice(0, 3));
       }
     };
- 
+
+    useEffect(() => {
+      if (selectedDate && selectedTime) {
+        onBookingSuccess(selectedDate, selectedTime);
+      }
+    }, [selectedDate, selectedTime]);
   
+    const handleDateClick = (date) => {
+      setSelectedDate(date);
+    };
+  
+    const handleTimeClick = (time) => {
+      setSelectedTime(time);
+    };
     return (
         <Box elevation={3}  
         // className={styles.calenderContainer}
@@ -135,7 +158,8 @@ function Calender() {
                   <Button
                     key={time}
                     variant={selectedTime === time ? 'contained' : 'outlined'}
-                    onClick={() => setSelectedTime(time)}
+                    onClick={() => handleTimeClick(time)}
+                    // onClick={() => setSelectedTime(time)}
                     size="small"
                     border= "1px solid #2AA7FF"
                     sx={{

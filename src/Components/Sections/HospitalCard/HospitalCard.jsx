@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Divider, Stack, Typography } from '@mui/material'
+import { Alert, Box, Button, Chip, Divider, Snackbar, Stack, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import hospitalIcon from '../../../assets/hospitalCircle.svg'
 import styles from './HospitalCard.module.css'
@@ -6,118 +6,69 @@ import thumbsup from '../../../assets/thumbsup.png'
 import Calender from '../Calender/Calender'
 import { format } from "date-fns";
 
-// function HospitalCard() {
-
-//     const [showCalender, setShowCalender] = useState(false)
-//   return (
-//     <Box className={styles.hopitalCardContainer} 
-//         sx={{
-//              width: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '785.56px' },
-//              height: { xs: '90%', sm: '85%', md: '80%', lg: '75%', xl: '180.38px' },
-//             //  mx: 'auto'
-//             mb:{xs:'30px', sm:'30px'},
-//             justifyContent:'center',
-//             alignContent:'center'
-//         }}>
-//             <Box className={styles.hospitalCardContent}
-//             // direction='column'
-//         sx={{
-//           height: { xs: 'auto', xl: '180.38px' },
-//           mb: showCalender ? 2 : 0,
-//         }}>
-//         <Stack
-//         direction={{ xs: "column", md: "row" }}
-//         spacing={{ xs: 1, md: 4 }}
-//         flexWrap={"wrap"}
-//         className={styles.texting}>
-//             <Box component='img' src={hospitalIcon} alt='hospitalIcon' width={{ xs: 64, md: 130 }} height="auto"
-//              sx={{ flexShrink: 0, alignSelf: "start" }}/>
-
-//              <Box textAlign='left' height={220} width={340} flex={1}>
-//                 <Typography className={styles.hospitalName} lineHeight={5}>
-//                 Fortis Hospital Richmond Road
-//                 </Typography>
-//                 <Typography className={styles.hospitalLocation}>
-//                 Banglore, Karnataka
-//                 </Typography>
-//                 <Typography className={styles.hospitalType}>
-//                 Smilessence Center for Advanced Dentistry + 1 more
-//                 </Typography>
-
-//                 <Stack 
-//                 direction={{ xs: "column", md: "row" }}
-//                 spacing={{ xs: 1, md: 1 }}>
-//                     <Typography className={styles.free}>
-//                     FREE
-//                     </Typography>
-//                     <Typography className={styles.amount}>
-//                     ₹500
-//                     </Typography>
-//                     <Typography className={styles.consultaion}>
-//                     Consultation fee at clinic
-//                     </Typography>
-//                 </Stack>
-//                 <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
-
-//                 <Stack 
-//                 className={styles.rating}
-//                 direction='row'
-//                 alignItems="center">
-//                     <Box component='img' src={thumbsup} alt='thumbsup' width={24} pr={0.5}/>
-//                     <Typography
-//                     fontWeight={700}
-//                     fontSize={{ xs: 14, md: 16 }}
-//                     color="#fff"
-//                     sx={{ opacity: 0.5 }}>
-//                         5
-//                     </Typography>
-//                 </Stack>
-                
-
-//              </Box>
-
-//              <Stack>
-//                 <Typography className={styles.available}>
-//                 Available Today
-//                 </Typography>
-//                 <Button
-//                 variant="contained"
-//                 disableElevation
-//                 className={styles.bookButton}
-//                 onClick={() => setShowCalender((prev) => !prev)}>
-//                 {!showCalender
-//                   ? "Book FREE Center Visit"
-//                   : "Hide Booking Calendar"}
-                
-//                 </Button>
-//              </Stack>
-           
-//         </Stack>
-//         </Box>            
-//         {showCalender && (
-//             <Box className={styles.calendarWrapper}
-//                 sx={{
-//                 width: '100%',
-//                 mt: 2,
-//                 // bgcolor: '#fff'
-//                 }}>
-//                 <Calender />
-//             </Box>
-//         )}
-        
-//     </Box>
-//   )
-// }
-
-// export default HospitalCard
-
 
 export default function HospitalCard({
   key,
   details,
   booking = false,
+  onBookingConfirmed,
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [open, setOpen] = useState(false);
+
+
+  const handleBookingSuccess = (selectedDate, selectedTime) => {
+    if (onBookingConfirmed) {
+      onBookingConfirmed(details, selectedDate, selectedTime);
+    }
+  };
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    checkBookingComplete();
+  };
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+    checkBookingComplete();
+  };
+
+  // const checkBookingComplete = () => {
+  //   if (selectedDate && selectedTime) {
+  //     setOpen(true);
+  //     storeBookingData();
+  //     onBookingConfirmed();
+  //   }
+  // };
+
+  const checkBookingComplete = () => {
+    if (selectedDate && selectedTime) {
+      setOpen(true);
+      storeBookingData();
+      if (onBookingConfirmed) {
+        onBookingConfirmed();
+      }
+    }
+  };
+
+  const storeBookingData = () => {
+    const bookingData = {
+      hospital: details["Hospital Name"],
+      date: selectedDate,
+      time: selectedTime,
+      ...details
+    };
+    localStorage.setItem('hospitalBooking', JSON.stringify(bookingData));
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
 
   return (
     <Box 
@@ -256,8 +207,14 @@ export default function HospitalCard({
       </Stack>
 
       {showCalendar && (
-        <Calender />
+        <Calender 
+        details={details}
+        // onDateSelect={handleDateSelect}
+        // onTimeSelect={handleTimeSelect}
+        onBookingSuccess={handleBookingSuccess}
+          />
       )}
+      
     </Box>
   );
 }

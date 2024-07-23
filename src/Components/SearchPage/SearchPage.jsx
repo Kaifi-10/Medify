@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Alert, Box, Container, Snackbar, Stack, Typography } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Search from '../Sections/Search/Search'
@@ -24,6 +24,8 @@ function SearchPage() {
   const [city, setCity] = useState(seachParams.get("city"));
   const [hospitals, setHospitals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+
 
 
   useEffect(() =>{
@@ -50,6 +52,62 @@ function SearchPage() {
     }
   },[state,city])
   console.log("Hospital:",hospitals)
+
+  // const handleBookingConfirmed = () => {
+  //   setOpenAlert(true);
+  // };
+
+  const handleBookingConfirmed = (details, selectedDate, selectedTime) => {
+
+    if (!selectedDate || !selectedTime) {
+      console.log("Both date and time must be selected to confirm booking");
+      return;
+    }
+    const bookingData = {
+      hospitalName: details["Hospital Name"],
+      city: details["City"],
+      state: details["State"],
+      hospitalType: details["Hospital Type"],
+      hospitalRating: details["Hospital overall rating"],
+      appointmentDate: selectedDate,
+      appointmentTime: selectedTime,
+      id: Date.now()
+    };
+    // localStorage.setItem('hospitalBooking', JSON.stringify(bookingData));
+
+    
+    // Retrieve existing bookings from localStorage
+    const existingBookingsJSON = localStorage.getItem('hospitalBookings');
+    let existingBookings = [];
+
+    if (existingBookingsJSON) {
+      try {
+        existingBookings = JSON.parse(existingBookingsJSON);
+      } catch (error) {
+        console.error('Error parsing existing bookings:', error);
+      }
+    }
+
+     // Define the newBooking object using the parameters
+     const newBooking = {
+      ...bookingData,
+      id: Date.now(), // Adding a unique ID to the new booking
+    };
+
+    // Add the new booking to the array
+    const updatedBookings = [...existingBookings, newBooking];
+
+    // Store the updated bookings array back in localStorage
+    localStorage.setItem('hospitalBookings', JSON.stringify(updatedBookings));
+    setOpenAlert(true);
+  };
+
+  const handleCloseAlert = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenAlert(false);
+  };
 
   return (
     <Box className={styles.searchPageContainer}>
@@ -127,7 +185,10 @@ function SearchPage() {
                 hospitals.map((hospital) => (
                   <HospitalCard 
                   key={hospital["Hospital Name"]}
-                  details={hospital}/>
+                  details={hospital}
+                  onBookingConfirmed={handleBookingConfirmed}
+                  /* onBookingConfirmed={(details, selectedDate, selectedTime) => handleBookingConfirmed(details, selectedDate, selectedTime)}*/
+                  />
                 ))
               )}
 
@@ -162,6 +223,12 @@ function SearchPage() {
           </Stack>
           </Box>
         </Container>
+
+        <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleCloseAlert}>
+        <Alert onClose={handleCloseAlert} severity="success" sx={{ width: '100%' }}>
+          Appointment Booking Confirmed! 
+        </Alert>
+      </Snackbar>
         
 
     </Box>
